@@ -1,0 +1,3 @@
+[submodule "subprojects/celero/Celero"]
+	path = subprojects/celero/celero
+	url = https://github.com/DigitalInBlue/Celero.git
