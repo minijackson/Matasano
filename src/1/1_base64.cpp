@@ -46,6 +46,10 @@ namespace {
 		result[0] = base64char(r2);
 		result[1] = base64char(r1);
 	}
+
+	void remainingStrToBase64(char* result, char const c1) {
+		result[0] = base64char(hexValue(c1) << 2);
+	}
 }
 
 void hexToBase64(char* result, char const* hex) {
@@ -69,8 +73,8 @@ void hexToBase64(char* result, char const* hex) {
 		threeLenStrToBase64(resultIt, hexIt[0], hexIt[1], '0');
 		resultIt += 2;
 	} else if(remainder == 1) {
-		threeLenStrToBase64(resultIt, hexIt[0], '0', '0');
-		resultIt += 2;
+		remainingStrToBase64(resultIt, hexIt[0]);
+		resultIt += 1;
 	}
 
 	if(bytesToRemain == 2) {
